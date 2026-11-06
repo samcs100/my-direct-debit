@@ -1,0 +1,36 @@
+{
+  "name": "my-direct-debits",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "dev": "concurrently -k \"npm:dev:helper\" \"npm:dev:web\"",
+    "dev:helper": "node apps/helper/src/server.ts",
+    "dev:web": "vite --config apps/web/vite.config.ts",
+    "build": "tsc --noEmit && vite build --config apps/web/vite.config.ts",
+    "preview": "vite preview --config apps/web/vite.config.ts",
+    "test": "node --test packages/core/test/*.test.ts apps/helper/test/*.test.ts",
+    "check:synthetic": "node scripts/check-synthetic.ts",
+    "test:e2e": "playwright test",
+    "evaluate:model": "node scripts/evaluate-model.ts",
+    "dev:ai": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/start-local-ai.ps1"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@playwright/test": "^1.64.1",
+    "@types/node": "^22.15.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "@vitejs/plugin-react": "^4.4.1",
+    "concurrently": "^9.1.2",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5"
+  }
+}

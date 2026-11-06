@@ -1,0 +1,1 @@
+{"version":"2.0.0","tasks":[{"label":"Start demo","type":"npm","script":"dev","problemMatcher":[],"isBackground":true},{"label":"Run tests","type":"npm","script":"test","problemMatcher":[]},{"label":"Build demo","type":"npm","script":"build","problemMatcher":[]}]}
